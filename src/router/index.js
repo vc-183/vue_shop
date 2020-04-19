@@ -19,11 +19,11 @@ const router = new VueRouter({
   form: 从哪个路径跳转而来
   next 是一个函数表示:放行 next()   /next('/login') 强制跳转
 */ 
-/* router.beforeEach((to,form,next)=>{
+router.beforeEach((to,form,next)=>{
   if(to=='/login') return next();
   //获取token 
    const tokenStr=window.sessionStorage.getItem('token');
    if(!tokenStr)return next('/login'); //强制跳转到login 页
    next();
-}) */
+})
 export default router

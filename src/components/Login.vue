@@ -38,54 +38,55 @@
 export default {
   data() {
     return {
-      /* 表单的数据绑定对象 */
+      // 表单的数据绑定对象
       loginForm: {
-        username: "魏晨的小可爱",
-        password: "admin1"
+        username: 'admin',
+        password: '123456'
       },
-      /* 验证规则 */
+      // 验证规则
       loginFormRules: {
-        /* 验证用户名是否合法 */
+        // 验证用户名是否合法
         username: [
-          { required: true, message: "请输入用户名", trigger: "blur" },
-          { min: 3, max: 10, message: "长度在 3 到 10 个字符", trigger: "blur" }
+          { required: true, message: '请输入用户名', trigger: 'blur' },
+          { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
         ],
-        /* 验证密码是否合法 */
+        // 验证密码是否合法
         password: [
-          { required: true, message: "请输入密码", trigger: "blur" },
-          { min: 6, max: 16, message: "密码长度为6-16", trigger: "blur" }
+          { required: true, message: '请输入密码', trigger: 'blur' },
+          { min: 6, max: 16, message: '密码长度为6-16', trigger: 'blur' }
         ]
       }
-    };
+    }
   },
   methods: {
-    /* 重置表单 */
+    // 重置表单
     resetLoginForm() {
       //获取表单实例对象
-      this.$refs.loginFormRef.resetFields();
+      this.$refs.loginFormRef.resetFields()
     },
-    /* 表单预校验 */
+    // 表单预校验
     login() {
       this.$refs.loginFormRef.validate(async valid => {
-        if (!valid) return;
-        const { data: res } = await this.$http.post("login", this.loginForm);
-        /* 提示是否登录成功 */
+        if (!valid) return
+        const { data: res } = await this.$http.post('login', this.loginForm)
+        // 提示是否登录成功
         if (res.meta.status !== 200) {
-          return this.$message.error("登录失败");
+          return this.$message.error('登录失败')
         } else {
-          return this.$message.success("登录成功");
-          /* 保存token到浏览器的sessionStorage中*/
-          window.sessionStorage.setItem("tokan", res.data.token);
-          /* 页面跳转 */
-          this.$router.push("/home");
+          this.$message.success('登录成功')
+          // 保存token到浏览器的sessionStorage中
+          console.log( res.data.token);
+          window.sessionStorage.setItem('token', res.data.token)
+          // 页面跳转
+          this.$router.push('/home')
         }
-      });
+      })
     }
   }
-};
+}
 </script>
 
-<style lang="less" scoped>
+<style lang='less' scoped>
 .login_container {
   background-color: #2b4b6b;
   height: 100%;

@@ -325,11 +325,7 @@
           const {
             data: res
           } = await this.$http.post('goods', form)
-
-          console.log(res);
-
           if (res.meta.status !== 201) {
-
             return this.$message.error('添加商品失败')
           }
           this.$message.success('添加商品成功!')

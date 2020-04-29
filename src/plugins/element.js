@@ -7,8 +7,13 @@ import {
     Col, Row, Table, TableColumn, Switch, Tooltip,
     Pagination, Dialog, MessageBox, Tag, Tree, Select,
     Option, Cascader, Alert, Tabs, TabPane, Step, Steps, CheckboxGroup,
-    Checkbox,Upload
+    Checkbox, Upload
 } from 'element-ui'
+
+/* import Timeline from './timeline/index'
+import TimelineItem from './timeline-item/index'
+Vue.use(Timeline)
+Vue.use(TimelineItem) */
 
 Vue.use(Button)
 Vue.use(Form)

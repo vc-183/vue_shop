@@ -130,7 +130,7 @@
           pagenum: 1,
           pagesize: 10,
         },
-        total: '',
+        total: 0,
         addressVisible: false,
         addressForm: {
           address1: [],
@@ -190,7 +190,7 @@
       showProgressBox() {
         return this.$message.error('获取物流进度失败！')
       },
-      
+
       /*  async showProgressBox() {
          const {
            data: res

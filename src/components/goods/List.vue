@@ -91,7 +91,7 @@
 
         },
         //总数据条数
-        total: '',
+        total: 0,
       }
     },
     created() {
